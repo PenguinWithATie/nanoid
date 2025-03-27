@@ -14,9 +14,7 @@
 //! ```rust
 //! use nanoid::nanoid;
 //!
-//! fn main() {
-//!    let id = nanoid!(); //=> "Yo1Tr9F3iF-LFHX9i9GvA"
-//! }
+//! let id = nanoid!(); //=> "Yo1Tr9F3iF-LFHX9i9GvA"
 //! ```
 //!
 //! ## Usage
@@ -29,9 +27,7 @@
 //! ```rust
 //! use nanoid::nanoid;
 //!
-//! fn main() {
-//!    let id = nanoid!(); //=> "Yo1Tr9F3iF-LFHX9i9GvA"
-//! }
+//! let id = nanoid!(); //=> "Yo1Tr9F3iF-LFHX9i9GvA"
 //! ```
 //!
 //! Symbols `-,.()` are not encoded in the URL. If used at the end of a link
@@ -45,9 +41,7 @@
 //! ```rust
 //! use nanoid::nanoid;
 //!
-//! fn main() {
-//!    let id = nanoid!(10); //=> "IRFa-VaY2b"
-//! }
+//! let id = nanoid!(10); //=> "IRFa-VaY2b"
 //! ```
 //!
 //! ### Custom Alphabet or Length
@@ -58,13 +52,11 @@
 //! ```rust
 //! use nanoid::nanoid;
 //!
-//! fn main() {
-//!     let alphabet: [char; 16] = [
-//!         '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f'
-//!     ];
+//! let alphabet: [char; 16] = [
+//!     '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f'
+//! ];
 //!
-//!    let id = nanoid!(10, &alphabet); //=> "4f90d13a42"
-//! }
+//! let id = nanoid!(10, &alphabet); //=> "4f90d13a42"
 //! ```
 //!
 //! Alphabet must contain 256 symbols or less.
@@ -132,7 +124,7 @@ pub mod rngs;
 
 pub fn format<F: Fn(usize) -> Vec<u8>>(random: F, alphabet: &[char], size: usize) -> String {
     assert!(
-        alphabet.len() <= u8::max_value() as usize,
+        alphabet.len() <= u8::MAX as usize,
         "The alphabet cannot be longer than a `u8` (to comply with the `random` function)"
     );
 
